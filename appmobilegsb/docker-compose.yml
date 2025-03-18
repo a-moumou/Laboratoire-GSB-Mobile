@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gsb
+    ports:
+      - "3306:3306"
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db 
